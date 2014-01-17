@@ -1,0 +1,46 @@
+" Look
+set vb
+set bg=dark
+syn on
+set number
+
+" Indentation
+set expandtab
+set tabstop=8
+set shiftwidth=2
+set softtabstop=2
+set backspace=2
+"set listchars=tab:⇥␣
+"set list!
+
+" Status Line
+set statusline=%F%m%r%h%w\ %{&ff}\ %Y\ hex:0x\%02.2B\ pos:%0l,%0v\ [%p%%]
+set laststatus=2
+
+" Highlight nbsp
+highlight NbSp ctermbg=lightgray guibg=lightred
+match NbSp /\%xa0/
+
+" gf edit the file under the cursor, and create it if it doesn't exist
+map gf :tabedit <cfile><CR> 
+
+" search
+set incsearch
+set ignorecase
+set hls
+
+" ii instead of Escape
+map! ii <Esc>
+" F1 is really annoying when pressed accidentally instead of escape
+map! <F1> <Esc>
+
+" random stuff
+set mouse=
+set nocompatible
+set ttyfast
+
+" enable/disable some stuff with F keys
+map <F1> :set number!<CR>
+map <F2> :set expandtab!<CR>
+map <F3> :set list!<CR>
+map <F4> :source /etc/vimrc.bepo
