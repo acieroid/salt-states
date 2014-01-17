@@ -164,3 +164,22 @@ def list():
                              'root': root}
 
     return ret
+
+def create(name, interface, ip, flavour=''):
+    '''
+    Create a new jail
+
+    CLI Example::
+
+        salt '*' ezjail.create foo em0 10.0.0.2
+    '''
+    ret = {'name': name,
+           'changes': {}}
+    status = _status(name)
+    if status['status'] != '':
+        ret['result'] = False
+        ret['comment'] = 'Jail already exists'
+    else:
+        cmd = 'ezjail-admin create {} {} "{}|{}"'.format('-f ' + flavour if flavour != '' else '', name, interface, ip)
+        ret['result'] = __salt__['cmd.retcode'](cmd) == 0
+    return ret
