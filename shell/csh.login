@@ -1,6 +1,6 @@
-if test -d /etc/profile.d/; then
+if ( -d /etc/profile.d/ ) then
   foreach profile (/etc/profile.d/*.csh)
-    test -r "$profile" && . "$profile"
-  done
+    test -r "$profile" && source "$profile"
+  end
   unset profile
-fi
+endif
