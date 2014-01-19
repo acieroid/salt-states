@@ -4,6 +4,4 @@ file_roots:
 
 base:
   '*':
-    - utf8.utf8
-    - shell.shell
     - vim.vim
