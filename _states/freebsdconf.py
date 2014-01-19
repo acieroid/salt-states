@@ -59,6 +59,11 @@ def set(name, path='/etc/rc.conf', value=''):
         else:
             prev = prev[:-1]
 
+        if value == True:
+            value = "YES"
+        elif value == False:
+            value = "NO"
+
         if prev == value or prev == '"{}"'.format(value):
             ret['result'] = True
             ret['comment'] = 'Same value was already set'

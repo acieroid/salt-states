@@ -10,7 +10,6 @@ ezjail:
     - enable: True
     - running
 
-
 ezjail_use_zfs:
   freebsdconf.set:
     - value: YES

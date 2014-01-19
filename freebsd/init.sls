@@ -1,7 +1,9 @@
 /etc/resolv.conf:
-  - file.append:
-    - text:
-      - nameserver 8.8.8.8
+  - file.managed:
+    - source: salt://freebsd/resolv.conf
+    - mode: 644
+    - user: root
+    - group: wheel
 
 /usr/local/etc/pkg.conf:
   - file.absent
