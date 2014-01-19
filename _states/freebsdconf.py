@@ -40,7 +40,7 @@ def _replace(path, key, value):
         else:
             sys.stdout.write(line)
 
-def set(path, key='', value=''):
+def set(name, path='/etc/rc.conf', value=''):
     '''
     Set or update a value for a configuration key
 
@@ -48,6 +48,7 @@ def set(path, key='', value=''):
 
         salt '*' freebsdconf.set /etc/rc.conf ezjail_jaifs zroot/ezjail
     '''
+    key = name
     ret = {'name': path,
            'changes': {}}
     prev = _get_value(path, key)
