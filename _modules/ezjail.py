@@ -51,6 +51,7 @@ def _start_jail(name):
 
 def _start_all_jails():
     cmd = 'ezjail-admin start'
+    ret = {}
     ret['name'] = ''
     ret['result'] = __salt__['cmd.retcode'](cmd) == 0
     ret['comment'] = ''
@@ -77,6 +78,7 @@ def _stop_jail(name):
 
 def _stop_all_jails():
     cmd = 'ezjail-admin stop'
+    ret={}
     ret['name'] = ''
     ret['result'] = __salt__['cmd.retcode'](cmd) == 0
     ret['comment'] = ''
@@ -98,6 +100,7 @@ def _restart_jail(name):
 
 def _restart_all_jails():
     cmd = 'ezjail-admin restart'
+    ret={}
     ret['name'] = ''
     ret['result'] = __salt__['cmd.retcode'](cmd) == 0
     ret['comment'] = ''
